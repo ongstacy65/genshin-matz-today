@@ -1,4 +1,7 @@
 import React from 'react';
+import MainContainer from './components/MainContainer'
+import ListContainer from './components/ListContainer'
+import MatzText from './components/MatzText'
 
 const items = {
   "Talent": [
@@ -72,9 +75,11 @@ const matzForToday = Object.values(items).flatMap(list => list.filter(item => it
 
 function App() {
   return (
-    <div>
-      {matzForToday.map(matz => <p>{`${matz.name} (${matz.location})`}</p>)}
-    </div>
+    <MainContainer>
+      <ListContainer>
+        {matzForToday.map(matz => <MatzText><strong>{matz.name}</strong> ({matz.location})</MatzText>)}
+      </ListContainer>
+    </MainContainer>
   );
 }
 
